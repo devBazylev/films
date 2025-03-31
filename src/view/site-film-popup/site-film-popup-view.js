@@ -3,13 +3,15 @@ import { createFilmPopup } from './site-film-popup.tpl';
 
 export default class SiteFilmPopupView extends AbstractView {
   #film = {};
+  #comments = [];
 
-  constructor (film) {
+  constructor (film, comments) {
     super();
     this.#film = film;
+    this.#comments = comments;
   }
 
   get template () {
-    return createFilmPopup(this.#film);
+    return createFilmPopup(this.#film, this.#comments);
   }
 }
