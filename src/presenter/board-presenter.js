@@ -50,6 +50,7 @@ export default class BoardPresenter {
     };
 
     function removePopup() {
+      document.body.style.removeProperty('overflow');
       remove(filmPopup);
     }
 
@@ -59,6 +60,7 @@ export default class BoardPresenter {
         const comments = commentsModel.comments;
 
         filmPopup = new SiteFilmPopupView(film, comments);
+        filmPopup.setClosePopupHandler(removePopup);
         render(filmPopup, document.body);
       });
     }
@@ -68,6 +70,7 @@ export default class BoardPresenter {
       onFilmCardClick: () => {
         renderPopup();
         document.addEventListener('keydown', escKeyDownHandler);
+        document.body.style.overflow = 'hidden';
       }
     });
 

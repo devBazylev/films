@@ -1,4 +1,5 @@
 import { AUTHORIZATION, END_POINT, FetchMethod } from '../consts';
+
 export default class FilmsModel {
   #films = [];
 

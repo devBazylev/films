@@ -21,7 +21,7 @@ export const createFilmPopup = (film, comments) => {
                 </div>
               </li>`;
       }
-    ).join();
+    ).join('');
 
     return `<h3 class="film-details__comments-title">Comments <span class="film-details__comments-count">${ comments.length }</span></h3>
             <ul class="film-details__comments-list">
@@ -107,7 +107,6 @@ export const createFilmPopup = (film, comments) => {
 
               <div class="film-details__bottom-container">
                 <section class="film-details__comments-wrap">
-
                   ${ createCommentsList() }
 
                   <form class="film-details__new-comment" action="" method="get">
