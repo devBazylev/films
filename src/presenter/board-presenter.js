@@ -8,10 +8,13 @@ import NoFilmsTemplate from '../view/site-no-films/site-no-films-vies';
 import ShowMoreButtonView from '../view/site-show-more-button/site-show-more-button-view';
 import SiteSortView from '../view/site-sort/site-sort-view';
 import FilmPresenter from './film-presenter';
+
 export default class BoardPresenter {
+  #filmPresenters = new Map();
+
   #boardContainer = null;
   #filmsModel = null;
-  #commentsModel = null;
+  #apiService = null;
 
   #showMoreButtonComponent = null;
   #noFilmsComponent = null;
@@ -22,10 +25,10 @@ export default class BoardPresenter {
   #renderedFilmsNumber = FilmCardsOnPage.ALL_PER_STEP;
   #filterType = FilterType.ALL;
 
-  constructor(boardContainer, filmsModel, commentsModel) {
+  constructor(boardContainer, filmsModel, apiService) {
     this.#boardContainer = boardContainer;
     this.#filmsModel = filmsModel;
-    this.#commentsModel = commentsModel;
+    this.#apiService = apiService;
   }
 
   get films() {
@@ -34,6 +37,8 @@ export default class BoardPresenter {
 
   init () {
     this.#renderBoard();
+
+    this.#filmsModel.addObserver(this.#handleModelEvent);
   }
 
   #renderNoFilms () {
@@ -75,10 +80,14 @@ export default class BoardPresenter {
 
   #renderFilm (film) {
     const filmPresenter = new FilmPresenter({
+      film: film,
       filmListContainer: this.#filmListContainerComponent.element,
+      onFilmCardClick: this.#handleFilmCardClick,
+      changeData: this.#handleViewAction,
+      apiService: this.#apiService,
     });
 
-    filmPresenter.init(film);
+    this.#filmPresenters.set(film.id, filmPresenter);
   }
 
   #renderShowMoreButton () {
@@ -98,5 +107,17 @@ export default class BoardPresenter {
     if (this.#renderedFilmsNumber < filmsNumber) {
       this.#renderShowMoreButton();
     }
+  };
+
+  #handleFilmCardClick = () => {
+    this.#filmPresenters.forEach((presenter) => presenter.removePopup());
+  };
+
+  #handleViewAction = async (update) => {
+    await this.#filmsModel.updateFilm(update);
+  };
+
+  #handleModelEvent = (data) => {
+    this.#filmPresenters.get(data.id).init(data);
   };
 }
