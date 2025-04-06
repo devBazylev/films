@@ -1,3 +1,4 @@
+
 import AbstractView from '../../framework/view/abstract-view';
 import { createShowMoreButtonTemplate } from './site-show-more-button.tpl';
 

@@ -9,10 +9,10 @@ const RenderPosition = {
 };
 
 /**
-  * Функция для создания элемента на основе разметки
-  * @param {string} template Разметка в виде строки
-  * @returns {HTMLElement} Созданный элемент
-  */
+ * Функция для создания элемента на основе разметки
+ * @param {string} template Разметка в виде строки
+ * @returns {HTMLElement} Созданный элемент
+ */
 function createElement(template) {
   const newElement = document.createElement('div');
   newElement.innerHTML = template;
@@ -21,11 +21,11 @@ function createElement(template) {
 }
 
 /**
-  * Функция для отрисовки элемента
-  * @param {AbstractView} component Компонент, который должен был отрисован
-  * @param {HTMLElement} container Элемент в котором будет отрисован компонент
-  * @param {string} place Позиция компонента относительно контейнера. По умолчанию - `beforeend`
-  */
+ * Функция для отрисовки элемента
+ * @param {AbstractView} component Компонент, который должен был отрисован
+ * @param {HTMLElement} container Элемент в котором будет отрисован компонент
+ * @param {string} place Позиция компонента относительно контейнера. По умолчанию - `beforeend`
+ */
 function render(component, container, place = RenderPosition.BEFOREEND) {
   if (!(component instanceof AbstractView)) {
     throw new Error('Can render only components');
@@ -39,10 +39,10 @@ function render(component, container, place = RenderPosition.BEFOREEND) {
 }
 
 /**
-  * Функция для замены одного компонента на другой
-  * @param {AbstractView} newComponent Компонент, который нужно показать
-  * @param {AbstractView} oldComponent Компонент, который нужно скрыть
-  */
+ * Функция для замены одного компонента на другой
+ * @param {AbstractView} newComponent Компонент, который нужно показать
+ * @param {AbstractView} oldComponent Компонент, который нужно скрыть
+ */
 function replace(newComponent, oldComponent) {
   if (!(newComponent instanceof AbstractView && oldComponent instanceof AbstractView)) {
     throw new Error('Can replace only components');
@@ -61,9 +61,9 @@ function replace(newComponent, oldComponent) {
 }
 
 /**
-  * Функция для удаления компонента
-  * @param {AbstractView} component Компонент, который нужно удалить
-  */
+ * Функция для удаления компонента
+ * @param {AbstractView} component Компонент, который нужно удалить
+ */
 function remove(component) {
   if (component === null) {
     return;

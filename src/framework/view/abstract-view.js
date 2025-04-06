@@ -8,8 +8,8 @@ const SHAKE_CLASS_NAME = 'shake';
 const SHAKE_ANIMATION_TIMEOUT = 600;
 
 /**
-* Абстрактный класс представления
-*/
+ * Абстрактный класс представления
+ */
 export default class AbstractView {
   /** @type {HTMLElement|null} Элемент представления */
   #element = null;
@@ -22,9 +22,9 @@ export default class AbstractView {
   }
 
   /**
-  * Геттер для получения элемента
-  * @returns {HTMLElement} Элемент представления
-  */
+   * Геттер для получения элемента
+   * @returns {HTMLElement} Элемент представления
+   */
   get element() {
     if (!this.#element) {
       this.#element = createElement(this.template);
@@ -34,10 +34,10 @@ export default class AbstractView {
   }
 
   /**
-  * Геттер для получения разметки элемента
-  * @abstract
-  * @returns {string} Разметка элемента в виде строки
-  */
+   * Геттер для получения разметки элемента
+   * @abstract
+   * @returns {string} Разметка элемента в виде строки
+   */
   get template() {
     throw new Error('Abstract method not implemented: get template');
   }
@@ -48,9 +48,9 @@ export default class AbstractView {
   }
 
   /**
-  * Метод, реализующий эффект "покачивания головой"
-  * @param {shakeCallback} [callback] Функция, которая будет вызвана после завершения анимации
-  */
+   * Метод, реализующий эффект "покачивания головой"
+   * @param {shakeCallback} [callback] Функция, которая будет вызвана после завершения анимации
+   */
   shake(callback) {
     this.element.classList.add(SHAKE_CLASS_NAME);
     setTimeout(() => {
@@ -61,6 +61,6 @@ export default class AbstractView {
 }
 
 /**
-* Функция, которая будет вызвана методом shake после завершения анимации
-* @callback shakeCallback
-*/
+ * Функция, которая будет вызвана методом shake после завершения анимации
+ * @callback shakeCallback
+ */

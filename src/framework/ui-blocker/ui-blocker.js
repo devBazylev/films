@@ -1,8 +1,8 @@
 import './ui-blocker.css';
 
 /**
-* Класс для блокировки интерфейса
-*/
+ * Класс для блокировки интерфейса
+ */
 export default class UiBlocker {
   /** @type {number} Время до блокировки интерфейса в миллисекундах */
   #lowerLimit;
@@ -23,10 +23,10 @@ export default class UiBlocker {
   #timerId;
 
   /**
-  * @param {Object} config Объект с настройками блокировщика
-  * @param {number} config.lowerLimit Время до блокировки интерфейса в миллисекундах. Если вызвать метод unblock раньше, то интерфейс заблокирован не будет
-  * @param {number} config.upperLimit Минимальное время блокировки в миллисекундах. Минимальная длительность блокировки
-  */
+   * @param {Object} config Объект с настройками блокировщика
+   * @param {number} config.lowerLimit Время до блокировки интерфейса в миллисекундах. Если вызвать метод unblock раньше, то интерфейс заблокирован не будет
+   * @param {number} config.upperLimit Минимальное время блокировки в миллисекундах. Минимальная длительность блокировки
+   */
   constructor({lowerLimit, upperLimit}) {
     this.#lowerLimit = lowerLimit;
     this.#upperLimit = upperLimit;

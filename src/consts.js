@@ -80,7 +80,51 @@ export const filmsContainerName = {
   MOST_COMMENTED_FILMS: 'MOST_COMMENTED_FILMS',
 };
 
-export const END_POINT = 'https://20.objects.htmlacademy.pro/cinemaddict/';
+export const RelativeTime = {
+  future: 'in %s',
+  past: '%s ago',
+  s: 'a few seconds',
+  m: 'a minute',
+  mm: '%d minutes',
+  h: 'an hour',
+  hh: '%d hours',
+  d: 'a day',
+  dd: '%d days',
+  M: 'a month',
+  MM: '%d months',
+  y: 'a year',
+  yy: '%d years'
+};
+
+export const TimeLimit = {
+  LOWER_LIMIT: 350,
+  UPPER_LIMIT: 1000,
+};
+
+export const ViewType = {
+  POPUP: 'POPUP',
+  FILM_LIST: 'FILM_LIST',
+};
+
+export const WatchedFilmsRank = {
+  NOVICE: {
+    maxCount: 10,
+    rank: 'Novice',
+  },
+  FAN: {
+    maxCount: 20,
+    rank: 'Fan',
+  },
+  MOVIE_BUFF: {
+    maxCount: null,
+    rank: 'Movie Buff',
+  }
+};
+
+export const TimeOutDelay = 300;
+
+export const END_POINT = 'https://20.objects.htmlacademy.pro/cinemaddict';
 export const AUTHORIZATION = 'Basic dmV0cm92Nzg6dmV0cm92Nzg=';
 export const ENTER_CODE = 13;
 export const EXTRA_FILMS_NUMBER = 2;
+export const DESRIPTION_MAX_SYMBOLS = 39;
