@@ -1,6 +1,6 @@
 import { FilmPropertyRelation, ViewActions, ViewType } from '../consts';
 import { remove, render, replace } from '../framework/render';
-import SiteFilmPopupView from '../view/site-film-popup/site-film-popup-view';
+import SiteFilmPopupView from '../view/site-film-popup-view';
 
 export default class PopupPresenter {
   #film = null;

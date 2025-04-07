@@ -1,5 +1,7 @@
-import AbstractView from '../../framework/view/abstract-view';
-import { createStatisticsTemplate } from './site-statistics.tpl';
+import AbstractView from '../framework/view/abstract-view';
+
+export const createStatisticsTemplate = (filmsNumber) =>
+  `<p>${filmsNumber} movies inside</p>`;
 
 export default class SiteStatisticsView extends AbstractView {
   #filmsNumber = null;

@@ -1,5 +1,6 @@
-import AbstractView from '../../framework/view/abstract-view';
-import { createFilmsListContainer } from './site-films-list-container.tpl';
+import AbstractView from '../framework/view/abstract-view';
+
+const createFilmsListContainer = () => '<div class="films-list__container"></div>';
 
 export default class SiteFilmsListContainerView extends AbstractView {
   constructor() {

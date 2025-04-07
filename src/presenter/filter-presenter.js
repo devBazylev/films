@@ -1,6 +1,6 @@
 import { FilterType, FilteredFilmsCount } from '../consts';
 import { RenderPosition, remove, render } from '../framework/render';
-import SiteFiltersView from '../view/site-filters/site-filters-view';
+import SiteFiltersView from '../view/site-filters-view';
 import { filter } from '../utils/filter';
 
 export default class FilterPresenter {

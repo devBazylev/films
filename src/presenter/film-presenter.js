@@ -1,6 +1,6 @@
 import { FilmPropertyRelation, ViewActions } from '../consts';
 import { remove, render, replace } from '../framework/render';
-import SiteFilmCardView from '../view/site-film-card/site-film-card-view';
+import SiteFilmCardView from '../view/site-film-card-view';
 
 export default class FilmPresenter {
   #prevFilmComponent = null;

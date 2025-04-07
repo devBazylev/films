@@ -1,6 +1,8 @@
 
-import AbstractView from '../../framework/view/abstract-view';
-import { createShowMoreButtonTemplate } from './site-show-more-button.tpl';
+import AbstractView from '../framework/view/abstract-view';
+
+export const createShowMoreButtonTemplate = () =>
+  '<button class="films-list__show-more">Show more</button>';
 
 export default class ShowMoreButtonView extends AbstractView {
   #handleClick = null;
