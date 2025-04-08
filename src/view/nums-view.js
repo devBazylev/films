@@ -1,9 +1,9 @@
 import AbstractView from '../framework/view/abstract-view';
 
-export const createStatisticsTemplate = (filmsNumber) =>
+const createStatisticsTemplate = (filmsNumber) =>
   `<p>${filmsNumber} movies inside</p>`;
 
-export default class SiteStatisticsView extends AbstractView {
+export default class NumsView extends AbstractView {
   #filmsNumber = null;
 
   constructor (filmsNumber) {

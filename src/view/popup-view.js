@@ -18,7 +18,7 @@ const getReadbleDate = (date) => {
   return dayjs(date).fromNow();
 };
 
-export const createFilmPopup = (film, comments, state) => {
+const createFilmPopup = (film, comments, state) => {
   const createCommentsList = () => {
     const commentsList = comments.map(
       (commentData) => {
@@ -197,7 +197,7 @@ export const createFilmPopup = (film, comments, state) => {
           </section>`;
 };
 
-export default class SiteFilmPopupView extends AbstractStatefulView {
+export default class PopupView extends AbstractStatefulView {
   #film = {};
   #comments = [];
   #emojiImageElement = null;
@@ -206,7 +206,7 @@ export default class SiteFilmPopupView extends AbstractStatefulView {
     super();
     this.#film = film;
     this.#comments = comments;
-    this._setState(SiteFilmPopupView.parseCommentToState());
+    this._setState(PopupView.parseCommentToState());
 
     this._callback.deleteCommentClick = onDeleteClick;
 

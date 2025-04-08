@@ -26,7 +26,7 @@ export const createSortTemplate = (currentSort) => {
           </ul>`;
 };
 
-export default class SiteSortView extends AbstractView {
+export default class SortView extends AbstractView {
   #currentSort = null;
 
   constructor (currentSort) {

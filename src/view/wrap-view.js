@@ -1,11 +1,11 @@
 import AbstractView from '../framework/view/abstract-view';
 
-export const createFilmsContainer = () =>
+const createFilmsContainer = () =>
   `<section class="films">
   </section>`;
 
 
-export default class SiteFilmsContainerView extends AbstractView {
+export default class WrapView extends AbstractView {
   get template () {
     return createFilmsContainer();
   }

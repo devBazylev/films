@@ -1,7 +1,7 @@
 import { FilterType, FilteredFilmsCount } from '../consts';
 import { RenderPosition, remove, render } from '../framework/render';
-import SiteFiltersView from '../view/site-filters-view';
 import { filter } from '../utils/filter';
+import FiltersView from '../view/filters-view';
 
 export default class FilterPresenter {
   #container = null;
@@ -26,7 +26,7 @@ export default class FilterPresenter {
       this.#filteredFilmsCount[key] = filter[FilterType[key]](this.#filmsModel.films).length;
     });
 
-    this.#filterComponent = new SiteFiltersView(this.#filterModel.filter, this.#filteredFilmsCount);
+    this.#filterComponent = new FiltersView(this.#filterModel.filter, this.#filteredFilmsCount);
     this.#filterComponent.setFilterTypeChangeHandler(this.#handleFilterTypeChange);
 
     render(this.#filterComponent, this.#container, RenderPosition.AFTERBEGIN);

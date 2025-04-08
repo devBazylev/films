@@ -5,7 +5,7 @@ const createFilmsListTemplate = (titleName, isEmptyList, isExtra) =>
     <h2 class="films-list__title ${ !(isEmptyList || isExtra) ? 'visually-hidden' : ''}">${ titleName }</h2>
   </section>`;
 
-export default class SiteFilmsListView extends AbstractView {
+export default class ListView extends AbstractView {
   constructor () {
     super();
   }

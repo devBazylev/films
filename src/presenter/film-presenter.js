@@ -1,6 +1,6 @@
 import { FilmPropertyRelation, ViewActions } from '../consts';
 import { remove, render, replace } from '../framework/render';
-import SiteFilmCardView from '../view/site-film-card-view';
+import CardView from '../view/card-view';
 
 export default class FilmPresenter {
   #prevFilmComponent = null;
@@ -22,7 +22,7 @@ export default class FilmPresenter {
     this.#prevFilmComponent = this.#filmComponent;
 
     this.#film = film;
-    this.#filmComponent = new SiteFilmCardView(film);
+    this.#filmComponent = new CardView(film);
 
     this.#filmComponent.setPropertyClickHandler(this.#handleFilmPropertyClick);
     this.#filmComponent.setFilmCardClickHandler(this.#openPopupCallback);

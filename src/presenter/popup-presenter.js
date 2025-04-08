@@ -1,6 +1,6 @@
 import { FilmPropertyRelation, ViewActions, ViewType } from '../consts';
 import { remove, render, replace } from '../framework/render';
-import SiteFilmPopupView from '../view/site-film-popup-view';
+import PopupView from '../view/popup-view';
 
 export default class PopupPresenter {
   #film = null;
@@ -30,7 +30,7 @@ export default class PopupPresenter {
     this.#film = film;
     this.#comments = comments;
 
-    this.#popupComponent = new SiteFilmPopupView(this.#film, this.#comments, this.#changeData);
+    this.#popupComponent = new PopupView(this.#film, this.#comments, this.#changeData);
 
     this.#popupComponent.setPropertyClickHandler(this.#handleFilmPropertyClick);
 

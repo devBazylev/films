@@ -78,7 +78,7 @@ const createFilmCard = (film) => {
           </article>`;
 };
 
-export default class SiteFilmCardView extends AbstractView {
+export default class CardView extends AbstractView {
   #film = null;
 
   constructor(film) {

@@ -3,13 +3,13 @@ import { remove, render } from '../framework/render';
 import { filter } from '../utils/filter';
 import { sortTimeDescending } from '../utils/utils';
 import UiBlocker from '../framework/ui-blocker/ui-blocker.js';
-import UserView from '../view/site-user-view';
-import SiteFilmsListContainerView from '../view/site-films-list-container-view';
-import SiteFilmsListView from '../view/site-films-list-view';
-import SiteFilmsContainerView from '../view/site-films-container-view';
-import ShowMoreButtonView from '../view/site-show-more-button-view';
-import SiteSortView from '../view/site-sort-view';
-import SiteStatisticsView from '../view/site-statistics-view';
+import UserView from '../view/user-view.js';
+import BoxView from '../view/box-view.js';
+import ListView from '../view/list-view.js';
+import WrapView from '../view/wrap-view.js';
+import BtnMoreView from '../view/btn-more-view';
+import SortView from '../view/sort-view.js';
+import NumsView from '../view/nums-view';
 import FilmPresenter from './film-presenter';
 import FilterPresenter from './filter-presenter';
 import PopupPresenter from './popup-presenter';
@@ -34,15 +34,15 @@ export default class BoardPresenter {
   #headerComponent = null;
   #footerStatisticsComponent = null;
 
-  #filmsContainerComponent = new SiteFilmsContainerView();
+  #filmsContainerComponent = new WrapView();
 
-  #allFilmsList = new SiteFilmsListView();
-  #topRatedFilmsList = new SiteFilmsListView();
-  #mostCommentedFilmsList = new SiteFilmsListView();
+  #allFilmsList = new ListView();
+  #topRatedFilmsList = new ListView();
+  #mostCommentedFilmsList = new ListView();
 
-  #allFilmsListContainer = new SiteFilmsListContainerView();
-  #topRatedFilmsListContainer = new SiteFilmsListContainerView();
-  #mostCommentedFilmsListContainer = new SiteFilmsListContainerView();
+  #allFilmsListContainer = new BoxView();
+  #topRatedFilmsListContainer = new BoxView();
+  #mostCommentedFilmsListContainer = new BoxView();
 
   #renderedFilmsNumber = FilmCardsOnPage.ALL_PER_STEP;
   #sortType = SortType.DEFAULT;
@@ -100,7 +100,7 @@ export default class BoardPresenter {
     if (this.#footerStatisticsComponent) {
       remove(this.#footerStatisticsComponent);
     }
-    this.#footerStatisticsComponent = new SiteStatisticsView(this.films.length);
+    this.#footerStatisticsComponent = new NumsView(this.films.length);
     render(this.#footerStatisticsComponent, document.querySelector('.footer__statistics'));
   };
 
@@ -201,7 +201,7 @@ export default class BoardPresenter {
   }
 
   #renderShowMoreButton () {
-    this.#showMoreButtonComponent = new ShowMoreButtonView({onClick: this.#handleShowMoreButtonClick});
+    this.#showMoreButtonComponent = new BtnMoreView({onClick: this.#handleShowMoreButtonClick});
     render(this.#showMoreButtonComponent, this.#allFilmsList.element);
   }
 
@@ -214,7 +214,7 @@ export default class BoardPresenter {
   };
 
   #renderSort = () => {
-    this.#sortComponent = new SiteSortView(this.#sortType);
+    this.#sortComponent = new SortView(this.#sortType);
     this.#sortComponent.setSortTypeChangeHandler(this.#handleSortTypeChange);
     render(this.#sortComponent, this.#boardContainer);
   };
